@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -14,24 +16,12 @@
 <header>
 <h1 class="font-weight-normal">PHP</h1>
 </header>
- 
+
 <main>
 <h2>Practice</h2>
 <pre>
 <!-- ここにプログラムを記述します -->
-<?php
-$file = file_get_contents('https://h2o-space.com/feed/json/');
-// jsonファイルが読み込まれる
-
-$json = json_decode($file);
-// 上記のファンクションで処理する
-
-// phpのオブジェクトになる
-
-foreach ($json->items as $item):?>
-・<a href="<?php print($item->url);?>"><?php print($item->title);?></a>
-<?php endforeach; ?>
-
+<?php print($_SESSION['session_message']);?>
 </pre>
 </main>
 </body>

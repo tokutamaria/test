@@ -14,24 +14,21 @@
 <header>
 <h1 class="font-weight-normal">PHP</h1>
 </header>
- 
+
 <main>
 <h2>Practice</h2>
 <pre>
 <!-- ここにプログラムを記述します -->
 <?php
-$file = file_get_contents('https://h2o-space.com/feed/json/');
-// jsonファイルが読み込まれる
+    $zip = '８８８８８８８';
 
-$json = json_decode($file);
-// 上記のファンクションで処理する
-
-// phpのオブジェクトになる
-
-foreach ($json->items as $item):?>
-・<a href="<?php print($item->url);?>"><?php print($item->title);?></a>
-<?php endforeach; ?>
-
+    $zip = mb_convert_kana($zip, 'a', 'UTF-8');
+    if(preg_match("/\A\d{3}[-]\d{4}\z/" , $zip)) {
+        print('郵便番号: 〒' . $zip);
+    }else{
+        print('※ 郵便番号を123-4567の形式でご記入ください');
+    }
+?>
 </pre>
 </main>
 </body>
